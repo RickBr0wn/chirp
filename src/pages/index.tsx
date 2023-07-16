@@ -9,16 +9,14 @@ import Image from 'next/image'
 dayjs.extend(relativeTime)
 
 const CreatePostWizard = () => {
-  const user = useUser()
+  const { user } = useUser()
 
-  console.log(user)
-
-  if (!user.user) return null
+  if (!user) return null
 
   return (
     <div className="flex w-full gap-3">
       <Image
-        src={user.user.imageUrl}
+        src={user.imageUrl}
         alt="profile image"
         className="h-14 w-14 rounded-full"
         height={56}
